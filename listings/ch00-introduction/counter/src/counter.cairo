@@ -17,16 +17,16 @@ mod SimpleCounteratwo {
     #[generate_trait]
     #[external(v0)]
     impl SimpleCounteratwo of ISimpleCounteratwo {
-        fn get_current_count(self: @ContractState) -> u256 {
+        fn get_current_total(self: @ContractState) -> u256 {
             return self.counter.read();
         }
 
-        fn increment(ref self: ContractState) {
+        fn increase(ref self: ContractState) {
             // Store counter value + 1
             let mut counter: u256 = self.counter.read() + 1;
             self.counter.write(counter);
         }
-        fn decrement(ref self: ContractState) {
+        fn decrease(ref self: ContractState) {
             // Store counter value - 1
             let mut counter: u256 = self.counter.read() - 1;
             self.counter.write(counter);
