@@ -1,5 +1,5 @@
 #[starknet::interface]
-trait ISimpleCounter<TContractState> {
+trait IDemoCounter<TContractState> {
     fn get_current_count(self: @TContractState) -> u256;
     fn increment(ref self: TContractState);
     fn decrement(ref self: TContractState);
@@ -7,7 +7,7 @@ trait ISimpleCounter<TContractState> {
 
 
 #[starknet::contract]
-mod SimpleCounter {
+mod DemoCounter {
     #[storage]
     struct Storage {
         // Counter variable
@@ -16,7 +16,7 @@ mod SimpleCounter {
 
     #[generate_trait]
     #[external(v0)]
-    impl SimpleCounter of ISimpleCounter {
+    impl DemoCounter of IDemoCounter {
         fn get_current_count(self: @ContractState) -> u256 {
             return self.counter.read();
         }
