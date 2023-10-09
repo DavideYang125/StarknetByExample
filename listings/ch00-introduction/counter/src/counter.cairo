@@ -1,8 +1,8 @@
 #[starknet::interface]
 trait ISimpleCounteratwo<TContractState> {
-    fn get_current_count(self: @TContractState) -> u256;
-    fn increment(ref self: TContractState);
-    fn decrement(ref self: TContractState);
+    fn get_current_total(self: @TContractState) -> u256;
+    fn increase(ref self: TContractState);
+    fn decrease(ref self: TContractState);
 }
 
 
